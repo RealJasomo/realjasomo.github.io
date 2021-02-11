@@ -1,0 +1,43 @@
+*{
+    font-family: Roboto;
+}
+
+.navArea {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 10px 10px 20px #666;
+    height: 100vh;
+    margin-right: 45px;
+}
+
+.link {
+    display: flex;
+    color: black;
+    margin: 15px 0px !important;
+    justify-content: center;
+    text-decoration: none;
+    padding: 15px 0px !important;
+}
+.icon{
+    width: 50px !important;
+    height: auto !important;
+}
+
+.active{
+    background-color: #EBF2FF;
+    padding-right: 15px !important;
+}
+.activeBar{
+    margin-right: 15px;
+    background-color: #0060ff;
+    height: 100%;
+    width: 5px;
+}
+.flexLink{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.expanded{
+    width: 20%;
+}

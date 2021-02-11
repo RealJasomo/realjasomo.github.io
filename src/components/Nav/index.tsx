@@ -25,7 +25,7 @@ export default class Nav extends Component<{}, NavState> {
         return (
             <HashRouter>
                 <div className={styles.navArea}>
-                    <div className={styles.expander}>
+                    <div style={{alignSelf:'flex-end'}}>
                         <IconButton onClick={()=>this.setState({open: !this.state.open})}>
                             {this.state.open?<NavigateBeforeIcon/>:<NavigateNextIcon/>}
                         </IconButton>

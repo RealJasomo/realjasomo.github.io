@@ -1,2 +1,4 @@
-# realjasomo.github.io
-Portfolio project for CSSE 280
+# Portfolio Project CSSE280
+---
+## Tech stack
+- React Typescript

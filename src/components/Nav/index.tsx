@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { HashRouter, Link } from 'react-router-dom'
+import { HashRouter, Link, withRouter } from 'react-router-dom'
+import { RouteComponentProps} from 'react-router'
 import { Icon, IconButton } from '@material-ui/core'
 import GitHubIcon from '@material-ui/icons/GitHub'
 import DescriptionIcon from '@material-ui/icons/Description'
@@ -12,14 +13,18 @@ interface NavState {
     open: boolean,
     activeLink: string
 }
-export default class Nav extends Component<{}, NavState> {
-    constructor(props: {}){
+class Nav extends Component<RouteComponentProps, NavState> {
+    constructor(props: RouteComponentProps){
         super(props);
         this.state = {
             open: false,
-            activeLink: ''
+            activeLink: this.props.location.pathname.slice(1)
         }
 
+    }
+    componentDidUpdate(prevProps: RouteComponentProps) {
+        if(prevProps.location != this.props.location)
+            this.setState({activeLink: this.props.location.pathname.slice(1)});
     }
     render() {
         return (
@@ -30,21 +35,21 @@ export default class Nav extends Component<{}, NavState> {
                             {this.state.open?<NavigateBeforeIcon/>:<NavigateNextIcon/>}
                         </IconButton>
                     </div>
-                    <Link className={`${styles.link} ${(this.state.activeLink==='about')?styles.active:''}`} to="/about" onClick={this.handleNavClick('about')}>
+                    <Link className={`${styles.link} ${(this.state.activeLink==='about')?styles.active:''}`} to="/about">
                         {this.state.activeLink==='about'&&<div className={styles.activeBar}></div>}
                         <div className={styles.flexLink}>
                             <AssignmentIndIcon className={styles.icon} />
                             {this.state.open&&<span>About me</span>}
                         </div>
                     </Link>          
-                    <Link className={`${styles.link} ${(this.state.activeLink==='projects')?styles.active:''}`} to="/projects" onClick={this.handleNavClick('projects')}>
+                    <Link className={`${styles.link} ${(this.state.activeLink==='projects')?styles.active:''}`} to="/projects">
                         {this.state.activeLink==='projects'&&<div className={styles.activeBar}></div>}
                         <div className={styles.flexLink}>
                             <GitHubIcon className={styles.icon} />
                             {this.state.open&&<span>Projects</span>}
                         </div>
                     </Link>   
-                    <Link className={`${styles.link} ${(this.state.activeLink==='resume')?styles.active:''}`} to="/resume"  onClick={this.handleNavClick('resume')}>
+                    <Link className={`${styles.link} ${(this.state.activeLink==='resume')?styles.active:''}`} to="/resume">
                         {this.state.activeLink==='resume'&&<div className={styles.activeBar}></div>}
                         <div className={styles.flexLink}>
                             <DescriptionIcon className={styles.icon}/>
@@ -59,3 +64,4 @@ export default class Nav extends Component<{}, NavState> {
         this.setState({activeLink: route})
     }
 }
+export default withRouter(Nav);

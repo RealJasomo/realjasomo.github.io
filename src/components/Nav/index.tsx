@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { HashRouter, Link, withRouter } from 'react-router-dom'
 import { RouteComponentProps} from 'react-router'
 import { Icon, IconButton } from '@material-ui/core'
+import HomeIcon from '@material-ui/icons/Home'
 import GitHubIcon from '@material-ui/icons/GitHub'
 import DescriptionIcon from '@material-ui/icons/Description'
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd'
@@ -29,12 +30,19 @@ class Nav extends Component<RouteComponentProps, NavState> {
     render() {
         return (
             <HashRouter>
-                <div className={styles.navArea}>
+                <div className={`${styles.navArea} ${this.state.open&&styles.expanded}`}>
                     <div style={{alignSelf:'flex-end'}}>
                         <IconButton onClick={()=>this.setState({open: !this.state.open})}>
                             {this.state.open?<NavigateBeforeIcon/>:<NavigateNextIcon/>}
                         </IconButton>
                     </div>
+                    <Link className={`${styles.link} ${(this.state.activeLink==='')?styles.active:''}`} to="/">
+                        {this.state.activeLink===''&&<div className={styles.activeBar}></div>}
+                        <div className={styles.flexLink}>
+                            <HomeIcon className={styles.icon} />
+                            {this.state.open&&<span>Home</span>}
+                        </div>
+                    </Link>     
                     <Link className={`${styles.link} ${(this.state.activeLink==='about')?styles.active:''}`} to="/about">
                         {this.state.activeLink==='about'&&<div className={styles.activeBar}></div>}
                         <div className={styles.flexLink}>

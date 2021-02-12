@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Nav } from './components'
+import { Nav, HomePage, AboutPage, ProjectsPage, ResumePage } from './components'
 import { HashRouter, Switch, Route} from 'react-router-dom'
 import styles from './css/App.module.css'
 
@@ -11,22 +11,22 @@ export default class App extends Component {
           <Nav/>
           <Switch>
             <Route exact path="/">
-              <div>Home</div>
+              <HomePage />
             </Route>
           </Switch>
           <Switch>
             <Route path="/about">
-              <div>About</div>
+              <AboutPage />
             </Route>
           </Switch>
           <Switch>
             <Route path="/projects">
-              <div>Projects</div>
+              <ProjectsPage />
             </Route>
           </Switch>
           <Switch>
             <Route path="/resume">
-              <div>Resume</div>
+              <ResumePage />
             </Route>
           </Switch>
         </HashRouter>

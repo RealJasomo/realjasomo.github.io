@@ -1,1 +1,5 @@
 export {default as Nav} from './Nav'
+export {default as HomePage} from './pages/HomePage'
+export {default as AboutPage} from './pages/AboutPage'
+export {default as ProjectsPage} from './pages/ProjectsPage'
+export {default as ResumePage} from './pages/ResumePage'

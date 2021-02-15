@@ -9,6 +9,7 @@ export default class App extends Component {
       <div className={styles.appContainer}>
         <HashRouter>
           <Nav/>
+          <div className={styles.fullWidth}>
           <Switch>
             <Route exact path="/">
               <HomePage />
@@ -29,6 +30,7 @@ export default class App extends Component {
               <ResumePage />
             </Route>
           </Switch>
+          </div>
         </HashRouter>
       </div>
     )

@@ -44,3 +44,7 @@
 .expanded .link{
     width: 10ch;
 }
+
+.navContainer{
+    float:left;
+}

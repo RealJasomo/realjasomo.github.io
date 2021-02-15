@@ -30,6 +30,7 @@ class Nav extends Component<RouteComponentProps, NavState> {
     render() {
         return (
             <HashRouter>
+                <div className={styles.navContainer}>
                 <div className={`${styles.navArea} ${this.state.open&&styles.expanded}`}>
                     <div style={{alignSelf:'flex-end'}}>
                         <IconButton onClick={()=>this.setState({open: !this.state.open})}>
@@ -64,6 +65,7 @@ class Nav extends Component<RouteComponentProps, NavState> {
                             {this.state.open&&<span>Resume</span>}
                         </div>
                     </Link>   
+                </div>
                 </div>
             </HashRouter>
         )

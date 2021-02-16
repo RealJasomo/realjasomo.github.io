@@ -1,0 +1,20 @@
+.image {
+    width: 15em;
+    height: 15rem;
+    border-radius: 50%;
+    border: 10px solid #D8D8D8;
+    margin-top: 3rem;
+}
+
+
+.flex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to bottom right, #5433FF, #20BDFF, #A5FECB);
+    min-height: 100%;
+    height: 100%;
+    margin-left: -30px;
+    color: white;
+    text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.2);
+}
